@@ -1,0 +1,54 @@
+<div class="hero">
+    <div class="container">
+        <h1 class="header-item">Choisir une partie à joindre</h1>
+        <table mat-table [dataSource]="this.roomService.availableRooms" class="mat-elevation-z8 demo-table">
+            <ng-container matColumnDef="roomId">
+                <th mat-header-cell *matHeaderCellDef>Numéro de partie</th>
+                <td mat-cell *matCellDef="let element">{{ element.roomId }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="creatorName">
+                <th mat-header-cell *matHeaderCellDef>Nom du créateur</th>
+                <td mat-cell *matCellDef="let element">{{ element.creatorName }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="dictionaryUsed">
+                <th mat-header-cell *matHeaderCellDef>Dictionnaire</th>
+                <td mat-cell *matCellDef="let element">{{ element.dictionaryUsed }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="timerUsed">
+                <th mat-header-cell *matHeaderCellDef>Minuterie</th>
+                <td mat-cell *matCellDef="let element">{{ element.timerUsed }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="isRandomModeOn">
+                <th mat-header-cell *matHeaderCellDef>Mode Aléatoire</th>
+                <td mat-cell *matCellDef="let element">{{ element.isRandomModeOn }}</td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr
+                mat-row
+                routerLink="/confirmJoin"
+                [class.demo-row-is-clicked]="clickedRow.has(row)"
+                *matRowDef="let row; let index; columns: displayedColumns"
+                (click)="clickedRow.add(row); selectRoom(row.roomId)"
+            ></tr>
+        </table>
+        <div class="is-grouped">
+            <button mat-raised-button class="button" routerLink="/home">Annuler</button>
+            <button
+                mat-raised-button
+                [ngClass]="{
+                    invisibleButton: this.roomService.availableRooms.length === 0
+                }"
+                [disabled]="this.roomService.availableRooms.length === 1"
+                class="button"
+                (click)="this.chooseRandomGame()"
+            >
+                Choisir alétoirement
+            </button>
+        </div>
+    </div>
+</div>

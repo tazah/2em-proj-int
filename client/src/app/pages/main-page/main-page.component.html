@@ -1,0 +1,23 @@
+<div class="hero">
+    <div class="container justified">
+        <h1 class="header-item">Bienvenue au jeu</h1>
+        <img
+            src="https://www.collinsdictionary.com/us/external/images/collins-logo-scrabble.png?version=4.0.200"
+            width="700"
+            height="200"
+            alt="Logo Scrabble"
+        />
+        <div class="is-grouped">
+            <button mat-raised-button color="blue" class="button" routerLink="/modeDeJeu" (click)="setGameModeType(0)">Scrabble classique</button>
+            <button mat-raised-button color="red" class="button" routerLink="/modeDeJeu" (click)="setGameModeType(1)">Scrabble LOG2990</button>
+            <button mat-raised-button color="gold" class="button" (click)="openDialog()">Meilleurs scores</button>
+        </div>
+        <div class="footer-item">
+            <h4 class="team-name">Équipe 302</h4>
+            <p>
+                <span>Ali Ameziane Hassani</span>, <span>Karim Gargouri</span>, <span>Katherine Sheridan</span>, <span>Khadija Rekik</span>,
+                <span>Samia Safaa</span>, <span>Taha Zahri</span>
+            </p>
+        </div>
+    </div>
+</div>

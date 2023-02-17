@@ -1,0 +1,37 @@
+.box * {
+    border-style: solid;
+    border-width: 2px;
+}
+
+.match-stats * {
+    display: inline-block;
+    max-width: auto;
+    border-style: none;
+}
+
+.timer-box {
+    float: right;
+}
+
+.title {
+    color: #1c2a5c;
+}
+
+.heading {
+    margin-bottom: 2%;
+}
+
+.info-joueur {
+    background-color: #cad3e3;
+    margin-bottom: 2%;
+}
+
+.info-jeu {
+    background-color: #f5e0e1;
+    margin-bottom: 2%;
+}
+
+.objectifs {
+    background-color: #ddcebb;
+    margin-bottom: 2%;
+}

@@ -1,0 +1,24 @@
+<div class="hero">
+    <div class="container">
+        <h1 class="header-item">Choisir paramètre mode multijoueur</h1>
+        <mat-card class="form-card">
+            <div class="settings">
+                <label>Nom du joueur</label>
+                <input matInput type="string" placeholder="Votre nom" value="userName" maxlength="8" [(ngModel)]="userName" />
+            </div>
+            <div class="is-grouped">
+                <mat-error *ngIf="!isNameInputValid"
+                    >Entrer un nom de 3 à 8 charactères de chiffre ou lettre pas de charactères spéciaux <br
+                /></mat-error>
+
+                <mat-error *ngIf="!isMatchAvailable">Oups! Le match selectionné a déjà commencé</mat-error>
+
+                <mat-error *ngIf="isSameName">Votre nom coincide avec celui de l'autre joueur. Veuillez choisir un autre nom</mat-error>
+            </div>
+            <div class="is-grouped">
+                <button mat-raised-button class="button" (click)="cancelJoin()" routerLink="/choisirPartieMultijoueurs">Annuler</button>
+                <button mat-raised-button color="blue" class="button" (click)="parameterValidation(userName)">Confirmer</button>
+            </div>
+        </mat-card>
+    </div>
+</div>

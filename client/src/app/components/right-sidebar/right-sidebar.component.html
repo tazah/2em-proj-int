@@ -1,0 +1,43 @@
+<div *ngIf="localGameHandler.match.parameters.mode === 'LOG2990'">
+    <mat-card class="objectives">
+        <div class="objective-title-typography"><b>Objectifs du jeu</b> <br /></div>
+        <div class="objective-heading-typography">
+            <b>Publique :<br /></b>
+        </div>
+        <div class="objective-content-typography" *ngFor="let objective of this.getPublicObjectives()">
+            {{ objective.description }}
+            ({{ objective.score }}pts)
+        </div>
+        <div class="objective-heading-typography">
+            <b>Privé : <br /></b>
+        </div>
+        <div class="objective-content-typography" *ngIf="!localGameHandler.match.players[0].privateOvjective.isReached">
+            {{ localGameHandler.match.players[0].privateOvjective.description }} ({{ localGameHandler.match.players[0].privateOvjective.score }}
+            pts)
+        </div>
+        <div class="objective-heading-typography">
+            <b>Complèté :<br /></b>
+        </div>
+        <div class="objective-content-typography" *ngFor="let objective of this.getCompletedObjectives()">
+            {{ objective.description }}
+            ({{ objective.score }}pts)
+        </div>
+    </mat-card>
+</div>
+
+<app-chat-box></app-chat-box>
+
+<div *ngIf="localGameHandler.match.gameOver">
+    <mat-card class="winner-message">
+        <div><b>Félicitations</b> {{ localGameHandler.match.players[this.localGameHandler.match.winner].name }}</div>
+        <div
+            *ngIf="
+                localGameHandler.match.players[1 - this.localGameHandler.match.winner].score ===
+                localGameHandler.match.players[this.localGameHandler.match.winner].score
+            "
+        >
+            et {{ localGameHandler.match.players[1 - this.localGameHandler.match.winner].name }}
+        </div>
+        vous avez gangé !
+    </mat-card>
+</div>

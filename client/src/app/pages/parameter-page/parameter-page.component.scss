@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Roboto&display=swap');
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    height: auto;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.header-item {
+    margin-top: 30px;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Merriweather';
+    color: white;
+}
+
+.button-block {
+    width: 20%;
+    margin-top: 150px;
+}
+
+.is-grouped {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.is-grouped > .button:not(:last-child) {
+    margin-right: 10px;
+}
+/*https://www.codegrepper.com/code-examples/html/add+space+between+two+buttons+css*/
+
+div.settings {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    grid-gap: 20px;
+    justify-content: center;
+}
+
+div.settings label {
+    text-align: left;
+}
+
+div.settings label:after {
+    content: ':';
+}
+/*https://stackoverflow.com/questions/9686538/align-labels-in-form-next-to-input*/
+
+.hero {
+    background-color: #131c3f;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Merriweather';
+}
+
+.checkBox {
+    margin: auto;
+}
+
+.form-card {
+    background-color: white;
+    width: min-content;
+    padding: 30px;
+}
+
+.mat-blue {
+    background-color: #afbdd5;
+    color: black;
+}

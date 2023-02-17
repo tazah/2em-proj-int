@@ -1,0 +1,10 @@
+<div id="chatbox">
+    <div #scrollMe id="chat-history">
+        <div *ngFor="let chat of this.localGame.chatHistory" class="message" class="{{ chat.author }}-message">
+            {{ chat.message }}
+        </div>
+    </div>
+    <div>
+        <input #clearMe (keyup.enter)="onKeyup($event)" type="message" name="messageInput" id="messageInput" maxlength="512" />
+    </div>
+</div>

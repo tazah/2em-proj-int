@@ -1,0 +1,48 @@
+<div>
+    <mat-card class="heading">
+        <mat-card-title><div class="title">Panneau d'informations</div></mat-card-title>
+        <mat-card-subtitle>
+            <b>
+                C'est le tour de : {{ localGameHandler.match.players[localGameHandler.match.activePlayer].name }} <br />
+                Temps restant : {{ this.roomService.localGame.match.parameters.timer }} secondes</b
+            ></mat-card-subtitle
+        >
+    </mat-card>
+    <mat-card class="info-joueur">
+        <mat-card-content>
+            <b>Informations du joueur <br /></b>
+            Nom : {{ localGameHandler.match.players[0].name }} <br />
+            Score : {{ localGameHandler.match.players[0].score }} <br />
+            <div *ngIf="localGameHandler.match.players[0].tray.length < 7">
+                Nombre de lettre dans le chevalet : {{ localGameHandler.match.players[0].tray.length }} <br />
+            </div>
+        </mat-card-content>
+    </mat-card>
+    <mat-card class="info-joueur">
+        <b> Informations de l'adversaire <br /></b>
+        Nom : {{ localGameHandler.match.players[1].name }} <br />
+        Score : {{ localGameHandler.match.players[1].score }} <br />
+        <div *ngIf="localGameHandler.match.players[1].tray.length < 7">
+            Nombre de lettre dans le chevalet : {{ localGameHandler.match.players[1].tray.length }} <br />
+        </div>
+    </mat-card>
+    <mat-card class="info-jeu">
+        <b>Informations sur le match <br /></b>
+        Mode du jeu : {{ localGameHandler.match.mode }} <br />
+        Difficulté du joueur virtuel : {{ localGameHandler.match.parameters.difficulty }} <br />
+        Nombres de lettres disponibles dans la réserve : {{ localGameHandler.getReserveNumber() }} <br />
+    </mat-card>
+    <div *ngIf="localGameHandler.match.gameOver">
+        <mat-card class="game-over">
+            <div>Félicitations {{ localGameHandler.match.players[this.localGameHandler.match.winner].name }}</div>
+            <div
+                *ngIf="
+                    localGameHandler.match.players[1 - this.localGameHandler.match.winner].score ===
+                    localGameHandler.match.players[this.localGameHandler.match.winner].score
+                "
+            >
+                Félicitations {{ localGameHandler.match.players[1 - this.localGameHandler.match.winner].name }}
+            </div>
+        </mat-card>
+    </div>
+</div>

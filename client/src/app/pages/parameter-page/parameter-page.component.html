@@ -1,0 +1,52 @@
+<div class="hero">
+    <div class="container">
+        <h1 class="header-item">Choisir paramètre mode solo</h1>
+        <mat-card class="form-card">
+            <div class="settings">
+                <label>Nom du joueur</label>
+                <input matInput type="string" placeholder="Votre nom" value="userName" maxlength="8" [(ngModel)]="userName" />
+
+                <label>Difficulté</label>
+                <mat-select [(ngModel)]="this.localGameHandler.initialParameters.difficulty">
+                    <mat-option [value]="this.difficultyLevels[0]">Joueur débutant</mat-option>
+                    <mat-option [value]="this.difficultyLevels[1]">Joueur expert</mat-option>
+                </mat-select>
+
+                <label>Dictionnaire</label>
+                <mat-select [(ngModel)]="selectedDictionary.title" value="{{ selectedDictionary.title }}">
+                    <mat-option
+                        *ngFor="let dictionary of availableDictionaries"
+                        [value]="dictionary.title"
+                        title="Description: {{ dictionary.description }}"
+                    >
+                        {{ dictionary.title }}
+                    </mat-option>
+                </mat-select>
+                <label>Minuterie</label>
+                <input
+                    matInput
+                    type="number"
+                    [(ngModel)]="matchTime"
+                    step="30"
+                    onkeydown="return false"
+                    value=""
+                    placeholder="Entrer une minuterie"
+                    max="300"
+                    min="30"
+                />
+                <mat-checkbox class="checkBox" [(ngModel)]="this.localGameHandler.initialParameters.isBoxTypeRandom">Bonus aléatoires</mat-checkbox>
+            </div>
+
+            <div class="is-grouped">
+                <mat-error *ngIf="!isNameInputValid">Entrer un nom de 3 à 8 charactères de chiffre ou lettre pas de charactères spéciaux</mat-error>
+            </div>
+            <div class="is-grouped">
+                <mat-error *ngIf="!isTimerInputValid">Entrer une minuterie entre 30 et 60 secondes</mat-error>
+            </div>
+            <div class="is-grouped">
+                <button mat-raised-button class="button" routerLink="/home">Annuler</button>
+                <button mat-raised-button color="blue" class="button" (click)="parameterValidation(userName, matchTime)">Confirmer</button>
+            </div>
+        </mat-card>
+    </div>
+</div>

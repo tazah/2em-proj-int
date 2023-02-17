@@ -1,0 +1,45 @@
+<div id="play-area">
+    <mat-card id="grid-container">
+        <canvas
+            id="line-index"
+            #lineCanvas
+            (click)="mouseService.mouseHitDetect($event)"
+            [attr.width]="lineIndexCanvasSize.y"
+            [attr.height]="lineIndexCanvasSize.x"
+        ></canvas>
+        <div class="column-canvas">
+            <canvas
+                id="column-index"
+                #columnCanvas
+                (click)="mouseService.mouseHitDetect($event)"
+                [attr.width]="columnIndexCanvasSize.y"
+                [attr.height]="columnIndexCanvasSize.x"
+            ></canvas>
+            <canvas
+                id="canvas"
+                #gridCanvas
+                (click)="mouseService.mouseHitDetect($event)"
+                [attr.width]="canvasSize.x"
+                [attr.height]="canvasSize.y"
+            ></canvas>
+        </div>
+        <div class="container">
+            <div class="item">
+                <app-tray autofocus [fontSize]="fontSize"> </app-tray>
+            </div>
+            <div class="item" style="font-size: 20px">
+                <p>Taille</p>
+                <input
+                    matInput
+                    style="font-size: 22px"
+                    [(ngModel)]="fontSize"
+                    type="number"
+                    onkeydown="return false"
+                    placeholder="Taille"
+                    max="5"
+                    min="1"
+                />
+            </div>
+        </div>
+    </mat-card>
+</div>

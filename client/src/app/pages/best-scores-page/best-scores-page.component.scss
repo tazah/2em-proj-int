@@ -1,0 +1,30 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    border: 1px solid #ddd;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.table-classic {
+    float: left;
+    width: 50%;
+    padding: 60px;
+    padding-right: 20px;
+}
+
+.table-log {
+    float: right;
+    width: 50%;
+    padding: 60px;
+    padding-left: 20px;
+}
+
+.hero {
+    background-color: #cfc2a0;
+    overflow: hidden;
+}

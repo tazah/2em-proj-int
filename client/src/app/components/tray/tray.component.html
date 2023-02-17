@@ -1,0 +1,17 @@
+<div class="police"></div>
+<div class="tray" (contextmenu)="$event.preventDefault()">
+    <div *ngFor="let tile of this.localGameHandler.match.players[0].tray; let index = index">
+        <mat-card
+            class="tile selectedForManipulation"
+            (mousedown)="this.visualManipulationService.selectTileWithMouse($event, index)"
+            (mousedown)="$event.stopPropagation()"
+            [class.selectedForManipulation]="this.visualManipulationService.selectedLetterForManipulationIndex === index"
+            [class.selectedForExchange]="this.visualManipulationService.selectedLettersForExchangeIndexes.includes(index)"
+        >
+            <mat-card-title class="letter" [style.font-size.px]="fontSize + 32">{{ tile.toUpperCase() }}</mat-card-title>
+            <mat-card-footer class="weight" [style.font-size.px]="fontSize + 20">{{
+                this.localGameHandler.bank.get(tile)?.weight
+            }}</mat-card-footer></mat-card
+        >
+    </div>
+</div>

@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Roboto&display=swap');
+
+.container {
+    min-height: 100vh;
+    height: auto;
+}
+
+.justified {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.header-item {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Merriweather';
+    color: #f8f6f1;
+}
+
+.is-grouped {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.hero {
+    background-color: #131c3f;
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.mat-blue {
+    background-color: #afbdd5;
+    color: black;
+}
+
+.mat-red {
+    background-color: #411e21;
+    color: #f8f6f1;
+}
+
+.mat-gold {
+    background-color: #cfc2a0;
+    color: black;
+}
+
+.form-card {
+    background-color: white;
+    width: min-content;
+    padding: 30px;
+}

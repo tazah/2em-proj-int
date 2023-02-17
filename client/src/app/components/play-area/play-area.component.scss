@@ -1,0 +1,66 @@
+#canvas {
+    border: 1px solid black;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-color: black;
+    background-color: #f4f5f5;
+}
+
+#column-index {
+    border: 2px solid black;
+}
+
+#line-index {
+    width: fit-content;
+    align-self: end;
+    border: 2px solid black;
+
+    zoom: 80%;
+}
+
+.column-canvas {
+    display: flex;
+}
+
+#grid-container * {
+    width: auto;
+    zoom: 91%;
+}
+
+#grid-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#play-area {
+    display: flex;
+    flex-direction: row;
+}
+
+#mouse-position-display {
+    margin-left: 130px;
+}
+
+.container {
+    display: inline-block;
+    width: auto;
+    margin-top: 10px;
+    margin-left: 4%;
+}
+
+.item {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    margin-left: 0.75em;
+}
+
+.is-grouped > .button:not(:last-child) {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.invisibleButton {
+    display: none;
+}
+/*https://www.codegrepper.com/code-examples/html/add+space+between+two+buttons+css*/

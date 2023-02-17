@@ -1,0 +1,42 @@
+.container {
+    height: 100%;
+    display: flex;
+    background-color: rgb(38, 46, 75);
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+}
+
+.play-area-container {
+    overflow: auto;
+    flex: 1 1 auto;
+}
+
+.left {
+    padding: 20px;
+    float: left;
+    width: 15%; /* The width is 20%, by default */
+}
+
+.main {
+    padding: 20px;
+    float: left;
+    // position: relative;
+}
+
+.right {
+    padding: 20px;
+    float: left;
+    width: 18%; /* The width is 20%, by default */
+}
+
+/* Use a media query to add a break point at 800px: */
+@media screen and (max-width: 800px) {
+    .left,
+    .main,
+    .right {
+        width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+    }
+}
+// source: https://www.w3schools.com/html/tryit.asp?filename=tryhtml_responsive_media_query

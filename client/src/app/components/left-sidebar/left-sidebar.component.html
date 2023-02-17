@@ -1,0 +1,104 @@
+<div class="container">
+    <button
+        mat-raised-button
+        class="button"
+        class="abandon-button"
+        id="abandonButton"
+        [disabled]="isTryingAbandon"
+        [ngClass]="{ invisibleButton: this.drawService.localGameHandler.match.gameOver }"
+        (click)="openDialog()"
+    >
+        Abandonner
+    </button>
+    <button
+        mat-raised-button
+        class="button"
+        id="abandonButton"
+        [ngClass]="{ invisibleButton: !this.drawService.localGameHandler.match.gameOver }"
+        (click)="abandonGame()"
+    >
+        Quitter
+    </button>
+
+    <button mat-raised-button class="button" [ngClass]="{ invisibleButton: !isTryingAbandon }" (click)="abandonGame()">Confirmer l'abandon</button>
+    <button mat-raised-button class="button" [ngClass]="{ invisibleButton: !isTryingAbandon }" (click)="isTryingAbandon = !isTryingAbandon">
+        Annuler l'abandon
+    </button>
+    <mat-card class="timer-reserve">
+        <div class="timer-typography">
+            <b>Temps : {{ this.roomService.localGame.match.parameters.timer }} </b>
+        </div>
+        <div class="timer-typography">
+            <b>Réserve : {{ localGameHandler.getReserveNumber() }}</b>
+        </div>
+        <div class="timer-typography">
+            <b>Dictionnaire : {{ localGameHandler.match.parameters.dictionary }}</b>
+        </div>
+    </mat-card>
+    <mat-card [class.color1]="localGameHandler.match.activePlayer === 0" class="player-info">
+        <div class="player-name-typography">{{ localGameHandler.match.players[0].name }} <br /></div>
+        <div class="player-info-typography">Score : {{ localGameHandler.match.players[0].score }} <br /></div>
+        <div class="player-info-typography">
+            <div *ngIf="localGameHandler.match.players[0].tray.length < 7">Lettres : {{ localGameHandler.match.players[0].tray.length }} <br /></div>
+        </div>
+    </mat-card>
+    <mat-card [class.color1]="localGameHandler.match.activePlayer === 1" class="player-info">
+        <div class="player-name-typography">{{ localGameHandler.match.players[1].name }} <br /></div>
+        <div class="player-info-typography">Score : {{ localGameHandler.match.players[1].score }} <br /></div>
+        <div class="player-info-typography">
+            <div *ngIf="localGameHandler.match.players[1].tray.length < 7">Lettres : {{ localGameHandler.match.players[1].tray.length }} <br /></div>
+        </div>
+    </mat-card>
+    <div class="column-buttons">
+        <button
+            mat-raised-button
+            [disabled]="
+                !!this.drawService.localGameHandler.match.activePlayer ||
+                this.drawService.localGameHandler.match.parameters.timer <= 1 ||
+                !this.visualPlacementService.wordToPlace.length
+            "
+            (click)="this.roomService.sendMessage(this.visualPlacementService.createPlacementCommand())"
+            class="button"
+        >
+            Placer
+        </button>
+
+        <button
+            mat-raised-button
+            [disabled]="
+                !!this.drawService.localGameHandler.match.activePlayer ||
+                !(this.visualManipulationService.selectedLettersForExchangeIndexes.length > 0) ||
+                this.drawService.localGameHandler.getReserveNumber() < 7
+            "
+            (mousedown)="this.roomService.sendMessage(this.visualManipulationService.createExchangeCommand())"
+            class="button"
+        >
+            Échanger
+        </button>
+
+        <button
+            mat-raised-button
+            [ngClass]="{
+                invisibleButton:
+                    !(this.visualManipulationService.selectedLettersForExchangeIndexes.length > 0) &&
+                    !(this.visualManipulationService.selectedLetterForManipulationIndex !== -1)
+            }"
+            [disabled]="
+                !(this.visualManipulationService.selectedLettersForExchangeIndexes.length > 0) &&
+                !(this.visualManipulationService.selectedLetterForManipulationIndex !== -1)
+            "
+            class="button"
+            (click)="this.visualManipulationService.cancelSelection()"
+        >
+            Annuler
+        </button>
+        <button
+            mat-raised-button
+            [disabled]="!!this.drawService.localGameHandler.match.activePlayer || this.drawService.localGameHandler.match.parameters.timer <= 1"
+            class="button"
+            (click)="this.roomService.sendMessage('!passer')"
+        >
+            Passer
+        </button>
+    </div>
+</div>

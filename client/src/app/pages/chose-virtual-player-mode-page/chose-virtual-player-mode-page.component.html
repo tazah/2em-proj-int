@@ -1,0 +1,18 @@
+<div class="hero">
+    <div class="container">
+        <h1 class="header-item">Choisir paramètre mode solo</h1>
+        <mat-card class="form-card">
+            <div class="settings">
+                <label>Difficulté</label>
+                <mat-select [(ngModel)]="this.localGameHandler.initialParameters.difficulty">
+                    <mat-option [value]="this.difficultyLevels[0]">Joueur débutant</mat-option>
+                    <mat-option [value]="this.difficultyLevels[1]">Joueur expert</mat-option>
+                </mat-select>
+            </div>
+            <div class="is-grouped">
+                <button mat-raised-button class="button" routerLink="/home">Annuler</button>
+                <button mat-raised-button color="blue" class="button" routerLink="/game" (click)="switchToSoloMode()">Confirmer</button>
+            </div>
+        </mat-card>
+    </div>
+</div>

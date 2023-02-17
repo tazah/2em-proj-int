@@ -1,0 +1,59 @@
+#chatbox {
+    width: 100%;
+}
+
+#chat-history {
+    text-align: left;
+    margin-top: 110px;
+    margin: 0 auto;
+    padding: 10px;
+    background: #fff;
+    height: 300px;
+    border: 2px solid #000000;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 10px;
+}
+
+#messageInput {
+    margin: 0;
+    border: 2px solid #000000;
+    display: block;
+    flex-direction: column;
+    overflow-wrap: break-word;
+    width: 97%;
+    border-radius: 10px;
+    height: 24px;
+}
+
+.message {
+    display: inline-block;
+    color: #fff;
+    font-family: 'Helvetica Neue' 'sans-serif';
+    padding: 5px 10px 5px 10px;
+    border-radius: 6px 6px 6px 6px;
+    max-width: 80%;
+    width: auto;
+    max-width: auto;
+    height: auto;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    margin-bottom: 20px;
+    clear: both;
+    white-space: pre-wrap;
+}
+
+.player-message {
+    float: right;
+    background: #16acea;
+}
+
+.opponent-message {
+    float: left;
+    background: #e8d71e;
+}
+
+.system-message {
+    float: right;
+    background: #d71b3b;
+}

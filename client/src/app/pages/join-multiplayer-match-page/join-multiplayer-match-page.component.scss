@@ -1,0 +1,54 @@
+.header-item {
+    margin-top: 30px;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Merriweather';
+    color: white;
+}
+
+.is-grouped {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.is-grouped > .button:not(:last-child) {
+    margin-right: 10px;
+}
+/*https://www.codegrepper.com/code-examples/html/add+space+between+two+buttons+css*/
+
+.demo-table {
+    width: 90%;
+    margin-left: 65px;
+}
+
+.mat-row .mat-cell {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    cursor: pointer;
+}
+
+.mat-row:hover .mat-cell {
+    border-color: currentColor;
+}
+
+.demo-row-is-clicked {
+    font-weight: bold;
+}
+
+.hero {
+    background-color: #131c3f;
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.invisibleButton {
+    display: none;
+}
+
+.mat-raised-button.mat-button-disabled.mat-button-disabled {
+    color: rgb(165 165 165 / 55%);
+    background-color: rgb(165 165 165 / 25%);
+}

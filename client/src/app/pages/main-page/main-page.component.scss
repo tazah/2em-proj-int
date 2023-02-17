@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Roboto&display=swap');
+
+.container {
+    min-height: 100vh;
+    height: auto;
+}
+
+.justified {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.team-name {
+    margin-top: 10%;
+    margin-bottom: 2%;
+    color: #ad965c;
+    font-family: 'Roboto';
+}
+
+.header-item {
+    margin-top: 40px;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Merriweather';
+    color: white;
+}
+
+.footer-item {
+    text-align: center;
+    font-family: 'Merriweather';
+}
+
+.footer-item p :nth-child(even) {
+    color: #afbdd5;
+}
+
+.footer-item p :nth-child(odd) {
+    color: #b49f6a;
+}
+
+.hero {
+    background-color: #131c3f;
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.is-grouped {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.is-grouped > .button:not(:last-child) {
+    margin-right: 10px;
+}
+/*https://www.codegrepper.com/code-examples/html/add+space+between+two+buttons+css*/
+
+.mat-blue {
+    background-color: #afbdd5;
+    color: black;
+}
+
+.mat-red {
+    background-color: #411e21;
+    color: #f8f6f1;
+}
+
+.mat-gold {
+    background-color: #b49f6a;
+    color: black;
+}
